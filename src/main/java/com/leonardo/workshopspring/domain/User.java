@@ -2,22 +2,27 @@ package com.leonardo.workshopspring.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection ="user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
 	private String name;
-	private String emailString;
+	private String email;
 
 	public User() {
 	}
 
-	public User(String id, String name, String emailString) {
+	public User(String id, String name, String email) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.emailString = emailString;
+		this.email = email;
 	}
 
 	public String getId() {
@@ -36,12 +41,12 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
-	public String getEmailString() {
-		return emailString;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailString(String emailString) {
-		this.emailString = emailString;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
